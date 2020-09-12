@@ -178,7 +178,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 6px 0;
   line-height: 1;
   font-family: bankgothic;
-  font-weight: 700;
+  font-weight: normal;
   letter-spacing: 3px;
   text-transform: uppercase;
 }
@@ -527,7 +527,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   color: #fff;
   font-family: bankgothic;
   font-size: 60px;
-  font-weight: 700;
+  font-weight: normal;
   text-transform: uppercase;
 }
 
@@ -1650,6 +1650,6 @@ body.mobile-nav-active #mobile-nav-toggle {
 #footer h1 {
   font-family: bankgothic;
   font-size: 36px;
-  font-weight: 700;
+  font-weight: normal;
   text-transform: uppercase;
 }
