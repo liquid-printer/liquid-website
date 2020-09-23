@@ -13,12 +13,12 @@ function ToUser_email(){
     $mail->isSMTP();
     $mail->SMTPAuth     = true;
     $mail->SMTPSecure   = 'ssl';
-    $mail->Host         = 'smtp.gmail.com';
+    $mail->Host         = '';
     $mail->Port         = '465';
     $mail->isHTML();
-    $mail->Username     = $_ENV["EMAIL_ACCOUNT"];
-    $mail->Password     = $_ENV["EMAIL_PASS"];
-    $mail->SetFrom($_ENV["EMAIL_ACCOUNT"]);
+    $mail->Username     = "";
+    $mail->Password     = "";
+    $mail->SetFrom("");
     $mail->Subject   = 'Contact form completed';
     $mail->Body         = 'Hi '.$_POST['name'].'! Thanks for sending your message.';
     $mail->AddAddress($_POST['email']);
@@ -36,22 +36,23 @@ function ToAdmin_email(){
     $mail->isSMTP();
     $mail->SMTPAuth     = true;
     $mail->SMTPSecure   = 'ssl';
-    $mail->Host         = 'smtp.gmail.com';
+    $mail->Host         = '';
     $mail->Port         = '465';
     $mail->isHTML();
-    $mail->Username     = $_ENV["EMAIL_ACCOUNT"];
-    $mail->Password     = $_ENV["EMAIL_PASS"];
-    $mail->SetFrom($_ENV["EMAIL_ACCOUNT"]);
+    $mail->Username     = "";
+    $mail->Password     = "";
+    $mail->SetFrom("");
     $mail->Subject      = 'New Contact Form. Subject: '.$_POST['subject'];
     $mail->Body         = "
-        <h3>From: <p>".$_POST['name']."</p> </h3>
-        <h3>Email: <p>".$_POST['email']."</p> </h3>
-        <h3>Message: <br>
+        <h4>From: <p>".$_POST['name']."</p> </h4>
+        <h4>Email: <p>".$_POST['email']."</p> </h4>
+        <h4>Message: <br>
         <p>".$_POST['message']."</p> 
-        </h3>   
-    
+        </h4>
     ";
-    $mail->AddAddress($_ENV["EMAIL_ACCOUNT"]);
+    $mail->AddAddress('', 'Contact');
+    $mail->AddCC('', '');
+    $mail->AddCC('', '');
     
     if($mail->Send()){
         return true;
@@ -62,8 +63,12 @@ function ToAdmin_email(){
 }
 
 if(ToAdmin_email()){
-    ToUser_email();
-    echo "Your message has been sent. Thank you!";
+    if(ToUser_email()){
+        echo "Your message has been sent. Thank you!";
+    }
+    else{
+        echo "Your message has NOT been sent. Check the input data!";
+    }
 }
 else{
     echo "Your message has NOT been sent. Check the input data!";
