@@ -1653,3 +1653,31 @@ body.mobile-nav-active #mobile-nav-toggle {
   font-weight: normal;
   text-transform: uppercase;
 }
+
+/*--------------------------------------------------------------
+# Interactive view
+--------------------------------------------------------------*/
+
+@media (min-width: 992px) {
+  #interactive {
+    height: 550px;
+  }
+}
+
+@media (max-width: 991px) {
+  #interactive {
+    height: 400px;
+  }
+}
+
+@media (max-width: 767px) {
+  #interactive {
+    height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  #interactive {
+    height: 300px;
+  }
+}
