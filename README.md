@@ -1,2 +1,7 @@
-# liquid-website
-Presentation website for Liquid 3D Printer
+# Liquid Website
+
+## Description
+Presentation website for Liquid 3D Printer.
+
+## License
+The MIT license.
